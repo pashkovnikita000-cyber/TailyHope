@@ -18,7 +18,7 @@ export default function Home() {
 
       <main className="pt-32">
         {/* Hero Section */}
-        <section className="text-center px-6 mb-24 max-w-4xl mx-auto">
+        <section className="text-center px-6 mb-24 max-w-4xl mx-auto relative z-10">
           <h1 className="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-[1.1]">
             Give a Tail. <br />
             <span className="text-indigo-600">Change a Story.</span>
@@ -27,7 +27,7 @@ export default function Home() {
             Discover your next family member. <br />Modern, simple, and full of hope for every animal in Latvia.
           </p>
           <div className="flex justify-center space-x-6">
-            <Link href="/catalog" className="bg-[#0071e3] text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-[#0077ed] transition-all shadow-xl shadow-blue-100 active:scale-95">
+            <Link href="/catalog" className="bg-[#0071e3] text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-[#0077ed] transition-all shadow-xl shadow-blue-100 active:scale-95 inline-block">
               Browse Animals
             </Link>
             <button className="text-[#0066cc] text-lg font-medium flex items-center hover:underline">
@@ -37,7 +37,7 @@ export default function Home() {
         </section>
 
         {/* Bento Grid */}
-        <section className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
+        <section className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-6 mb-24 relative z-10">
           <Link href="/catalog" className="bg-[#f5f5f7] rounded-[32px] p-12 text-center transition-all hover:scale-[1.01] hover:bg-[#f0f0f2] cursor-pointer group block">
             <h2 className="text-4xl font-bold mb-2">Businka</h2>
             <p className="text-xl text-gray-500 mb-8 font-medium">Calm. Elegant. European.</p>
@@ -62,7 +62,7 @@ export default function Home() {
         </section>
 
         {/* Small Cards */}
-        <section className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6 mb-32">
+        <section className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6 mb-32 relative z-10">
           <Link href="#" className="bg-[#f5f5f7] p-8 rounded-[32px] flex flex-col items-center text-center group cursor-pointer block">
             <div className="text-5xl mb-6 group-hover:scale-110 transition-transform">📍</div>
             <h3 className="text-2xl font-bold mb-2">Local Shelters</h3>
@@ -85,7 +85,7 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <footer className="bg-white border-t border-gray-100 py-20 px-6 text-center">
+      <footer className="bg-white border-t border-gray-100 py-20 px-6 text-center relative z-10">
         <div className="max-w-4xl mx-auto space-y-6">
           <p className="text-xs text-gray-400 font-bold uppercase tracking-widest">Taily Hope • Latvia Animal Welfare 2026</p>
           <div className="h-px bg-gray-100 w-full"></div>
