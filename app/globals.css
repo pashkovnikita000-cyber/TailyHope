@@ -10,24 +10,15 @@
   --foreground: #1d1d1f;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #ffffff;
-    --foreground: #1d1d1f;
-  }
-}
-
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
   -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
 }
 
-/* Ensure all interactive elements have sufficient z-index and are not blocked */
-a, button, [role="button"] {
-  position: relative;
-  z-index: 20;
+/* Base interactive styles */
+a, button {
   cursor: pointer;
-  pointer-events: auto !important;
+  touch-action: manipulation;
 }
