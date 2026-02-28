@@ -27,3 +27,4 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+// Triggering redeploy at Sat Feb 28 05:43:21 PM EET 2026
