@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -6,13 +6,13 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100 px-6 py-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="text-xl font-bold tracking-tight">Taily Hope 🐾</div>
+          <Link href="/" className="text-xl font-bold tracking-tight">Taily Hope 🐾</Link>
           <div className="hidden md:flex space-x-8 text-xs font-medium opacity-60">
-            <a href="#" className="hover:opacity-100 transition-opacity">Find a Tail</a>
-            <a href="#" className="hover:opacity-100 transition-opacity">Shelters</a>
-            <a href="#" className="hover:opacity-100 transition-opacity">Our Mission</a>
+            <Link href="/catalog" className="hover:opacity-100 transition-opacity">Find a Tail</Link>
+            <Link href="#" className="hover:opacity-100 transition-opacity">Shelters</Link>
+            <Link href="/news" className="hover:opacity-100 transition-opacity">News</Link>
           </div>
-          <div className="text-xs font-semibold text-blue-600 cursor-pointer">Admin</div>
+          <Link href="/admin" className="text-xs font-semibold text-blue-600 cursor-pointer hover:opacity-80 transition-opacity">Admin</Link>
         </div>
       </nav>
 
@@ -27,9 +27,9 @@ export default function Home() {
             Discover your next family member. <br />Modern, simple, and full of hope for every animal in Latvia.
           </p>
           <div className="flex justify-center space-x-6">
-            <button className="bg-[#0071e3] text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-[#0077ed] transition-all shadow-xl shadow-blue-100 active:scale-95">
+            <Link href="/catalog" className="bg-[#0071e3] text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-[#0077ed] transition-all shadow-xl shadow-blue-100 active:scale-95">
               Browse Animals
-            </button>
+            </Link>
             <button className="text-[#0066cc] text-lg font-medium flex items-center hover:underline">
               How it works <span className="ml-1 text-sm">〉</span>
             </button>
@@ -38,7 +38,7 @@ export default function Home() {
 
         {/* Bento Grid */}
         <section className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
-          <div className="bg-[#f5f5f7] rounded-[32px] p-12 text-center transition-all hover:scale-[1.01] hover:bg-[#f0f0f2] cursor-pointer group">
+          <Link href="/catalog" className="bg-[#f5f5f7] rounded-[32px] p-12 text-center transition-all hover:scale-[1.01] hover:bg-[#f0f0f2] cursor-pointer group">
             <h2 className="text-4xl font-bold mb-2">Businka</h2>
             <p className="text-xl text-gray-500 mb-8 font-medium">Calm. Elegant. European.</p>
             <div className="w-full h-64 bg-white/50 rounded-3xl flex items-center justify-center text-8xl mb-8 group-hover:scale-105 transition-transform duration-500">
@@ -47,9 +47,9 @@ export default function Home() {
             <span className="text-[#0066cc] text-lg font-medium flex items-center justify-center hover:underline">
               Adopt now <span className="ml-1 text-sm">〉</span>
             </span>
-          </div>
+          </Link>
 
-          <div className="bg-[#f5f5f7] rounded-[32px] p-12 text-center transition-all hover:scale-[1.01] hover:bg-[#f0f0f2] cursor-pointer group">
+          <Link href="/catalog" className="bg-[#f5f5f7] rounded-[32px] p-12 text-center transition-all hover:scale-[1.01] hover:bg-[#f0f0f2] cursor-pointer group">
             <h2 className="text-4xl font-bold mb-2">Sergey</h2>
             <p className="text-xl text-gray-500 mb-8 font-medium">Strong. Loyal. Tabby King.</p>
             <div className="w-full h-64 bg-white/50 rounded-3xl flex items-center justify-center text-8xl mb-8 group-hover:scale-105 transition-transform duration-500">
@@ -58,7 +58,7 @@ export default function Home() {
             <span className="text-[#0066cc] text-lg font-medium flex items-center justify-center hover:underline">
               Adopt now <span className="ml-1 text-sm">〉</span>
             </span>
-          </div>
+          </Link>
         </section>
 
         {/* Small Cards */}
@@ -69,18 +69,18 @@ export default function Home() {
             <p className="text-gray-500 font-medium mb-6">Find a friend near you.</p>
             <span className="text-[#0066cc] font-medium hover:underline cursor-pointer">Explore 〉</span>
           </div>
-          <div className="bg-[#f5f5f7] p-8 rounded-[32px] flex flex-col items-center text-center">
-            <div className="text-5xl mb-6">❤️</div>
-            <h3 className="text-2xl font-bold mb-2">Success Stories</h3>
-            <p className="text-gray-500 font-medium mb-6">Read about happy families.</p>
-            <span className="text-[#0066cc] font-medium hover:underline cursor-pointer">Read more 〉</span>
-          </div>
-          <div className="bg-[#f5f5f7] p-8 rounded-[32px] flex flex-col items-center text-center">
-            <div className="text-5xl mb-6">📋</div>
-            <h3 className="text-2xl font-bold mb-2">Admin</h3>
+          <Link href="/news" className="bg-[#f5f5f7] p-8 rounded-[32px] flex flex-col items-center text-center group cursor-pointer">
+            <div className="text-5xl mb-6 group-hover:scale-110 transition-transform">❤️</div>
+            <h3 className="text-2xl font-bold mb-2">Latest News</h3>
+            <p className="text-gray-500 font-medium mb-6">Updates from our community.</p>
+            <span className="text-[#0066cc] font-medium hover:underline">Read more 〉</span>
+          </Link>
+          <Link href="/admin" className="bg-[#f5f5f7] p-8 rounded-[32px] flex flex-col items-center text-center group cursor-pointer">
+            <div className="text-5xl mb-6 group-hover:scale-110 transition-transform">📋</div>
+            <h3 className="text-2xl font-bold mb-2">Admin Panel</h3>
             <p className="text-gray-500 font-medium mb-6">Manage shelter listings.</p>
-            <span className="text-[#0066cc] font-medium hover:underline cursor-pointer">Login 〉</span>
-          </div>
+            <span className="text-[#0066cc] font-medium hover:underline">Login 〉</span>
+          </Link>
         </section>
       </main>
 
