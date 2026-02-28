@@ -2,64 +2,100 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
+    <div className="min-h-screen bg-white text-[#1d1d1f] font-sans selection:bg-indigo-100 selection:text-indigo-900">
+      {/* Navigation */}
+      <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-gray-100 px-6 py-4">
+        <div className="max-w-7xl mx-auto flex justify-between items-center">
+          <div className="text-xl font-bold tracking-tight">Taily Hope 🐾</div>
+          <div className="hidden md:flex space-x-8 text-xs font-medium opacity-60">
+            <a href="#" className="hover:opacity-100 transition-opacity">Find a Tail</a>
+            <a href="#" className="hover:opacity-100 transition-opacity">Shelters</a>
+            <a href="#" className="hover:opacity-100 transition-opacity">Our Mission</a>
+          </div>
+          <div className="text-xs font-semibold text-blue-600 cursor-pointer">Admin</div>
+        </div>
+      </nav>
+
+      <main className="pt-32">
+        {/* Hero Section */}
+        <section className="text-center px-6 mb-24 max-w-4xl mx-auto">
+          <h1 className="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-[1.1]">
+            Give a Tail. <br />
+            <span className="text-indigo-600">Change a Story.</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-xl md:text-2xl text-gray-500 font-medium mb-10 max-w-2xl mx-auto">
+            Discover your next family member. <br />Modern, simple, and full of hope for every animal in Latvia.
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+          <div className="flex justify-center space-x-6">
+            <button className="bg-[#0071e3] text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-[#0077ed] transition-all shadow-xl shadow-blue-100 active:scale-95">
+              Browse Animals
+            </button>
+            <button className="text-[#0066cc] text-lg font-medium flex items-center hover:underline">
+              How it works <span className="ml-1 text-sm">〉</span>
+            </button>
+          </div>
+        </section>
+
+        {/* Bento Grid */}
+        <section className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
+          <div className="bg-[#f5f5f7] rounded-[32px] p-12 text-center transition-all hover:scale-[1.01] hover:bg-[#f0f0f2] cursor-pointer group">
+            <h2 className="text-4xl font-bold mb-2">Businka</h2>
+            <p className="text-xl text-gray-500 mb-8 font-medium">Calm. Elegant. European.</p>
+            <div className="w-full h-64 bg-white/50 rounded-3xl flex items-center justify-center text-8xl mb-8 group-hover:scale-105 transition-transform duration-500">
+              🐱
+            </div>
+            <span className="text-[#0066cc] text-lg font-medium flex items-center justify-center hover:underline">
+              Adopt now <span className="ml-1 text-sm">〉</span>
+            </span>
+          </div>
+
+          <div className="bg-[#f5f5f7] rounded-[32px] p-12 text-center transition-all hover:scale-[1.01] hover:bg-[#f0f0f2] cursor-pointer group">
+            <h2 className="text-4xl font-bold mb-2">Sergey</h2>
+            <p className="text-xl text-gray-500 mb-8 font-medium">Strong. Loyal. Tabby King.</p>
+            <div className="w-full h-64 bg-white/50 rounded-3xl flex items-center justify-center text-8xl mb-8 group-hover:scale-105 transition-transform duration-500">
+              🐈
+            </div>
+            <span className="text-[#0066cc] text-lg font-medium flex items-center justify-center hover:underline">
+              Adopt now <span className="ml-1 text-sm">〉</span>
+            </span>
+          </div>
+        </section>
+
+        {/* Small Cards */}
+        <section className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6 mb-32">
+          <div className="bg-[#f5f5f7] p-8 rounded-[32px] flex flex-col items-center text-center">
+            <div className="text-5xl mb-6">📍</div>
+            <h3 className="text-2xl font-bold mb-2">Local Shelters</h3>
+            <p className="text-gray-500 font-medium mb-6">Find a friend near you.</p>
+            <span className="text-[#0066cc] font-medium hover:underline cursor-pointer">Explore 〉</span>
+          </div>
+          <div className="bg-[#f5f5f7] p-8 rounded-[32px] flex flex-col items-center text-center">
+            <div className="text-5xl mb-6">❤️</div>
+            <h3 className="text-2xl font-bold mb-2">Success Stories</h3>
+            <p className="text-gray-500 font-medium mb-6">Read about happy families.</p>
+            <span className="text-[#0066cc] font-medium hover:underline cursor-pointer">Read more 〉</span>
+          </div>
+          <div className="bg-[#f5f5f7] p-8 rounded-[32px] flex flex-col items-center text-center">
+            <div className="text-5xl mb-6">📋</div>
+            <h3 className="text-2xl font-bold mb-2">Admin</h3>
+            <p className="text-gray-500 font-medium mb-6">Manage shelter listings.</p>
+            <span className="text-[#0066cc] font-medium hover:underline cursor-pointer">Login 〉</span>
+          </div>
+        </section>
       </main>
+
+      {/* Footer */}
+      <footer className="bg-white border-t border-gray-100 py-20 px-6 text-center">
+        <div className="max-w-4xl mx-auto space-y-6">
+          <p className="text-xs text-gray-400 font-bold uppercase tracking-widest">Taily Hope • Latvia Animal Welfare 2026</p>
+          <div className="h-px bg-gray-100 w-full"></div>
+          <p className="text-[10px] text-gray-300 leading-relaxed max-w-xl mx-auto">
+            1. Adoption requires a verified profile and background check by the respective shelter. 
+            2. Taily Hope is a non-profit initiative dedicated to digitalizing animal rescue operations.
+          </p>
+          <p className="text-xs text-gray-400">© 2026 Taily Hope. All rights reserved.</p>
+        </div>
+      </footer>
     </div>
   );
 }
