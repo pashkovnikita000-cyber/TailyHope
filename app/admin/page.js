@@ -1,24 +1,29 @@
 'use client'
 import { useState } from 'react'
 import { supabase } from '@/lib/supabase'
+import { useRouter } from 'next/navigation'
 
 export default function AdminLogin() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
+  const router = useRouter()
 
   const handleLogin = async (e) => {
     e.preventDefault()
     setLoading(true)
     const { error } = await supabase.auth.signInWithPassword({ email, password })
-    if (error) alert(error.message)
-    else window.location.href = '/admin/dashboard'
+    if (error) {
+      alert(error.message)
+    } else {
+      router.push('/admin/dashboard')
+    }
     setLoading(false)
   }
 
   return (
     <div className="min-h-screen bg-[#f5f5f7] flex items-center justify-center px-6 font-sans text-[#1d1d1f]">
-      <div className="bg-white p-12 rounded-[40px] shadow-sm max-w-md w-full">
+      <div className="bg-white p-12 rounded-[40px] shadow-sm max-w-md w-full relative z-50">
         <div className="text-center mb-10">
           <div className="text-3xl mb-4">🐾</div>
           <h1 className="text-3xl font-extrabold tracking-tight">Taily Hope Admin</h1>
@@ -31,7 +36,7 @@ export default function AdminLogin() {
             <input 
               type="email" 
               required
-              className="w-full bg-[#f5f5f7] border-none rounded-2xl py-4 px-6 focus:ring-2 focus:ring-blue-500 transition-all"
+              className="w-full bg-[#f5f5f7] border-none rounded-2xl py-4 px-6 focus:ring-2 focus:ring-blue-500 transition-all text-lg"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -41,7 +46,7 @@ export default function AdminLogin() {
             <input 
               type="password" 
               required
-              className="w-full bg-[#f5f5f7] border-none rounded-2xl py-4 px-6 focus:ring-2 focus:ring-blue-500 transition-all"
+              className="w-full bg-[#f5f5f7] border-none rounded-2xl py-4 px-6 focus:ring-2 focus:ring-blue-500 transition-all text-lg"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
@@ -49,7 +54,7 @@ export default function AdminLogin() {
           <button 
             type="submit" 
             disabled={loading}
-            className="w-full bg-[#0071e3] text-white py-4 rounded-2xl font-bold hover:bg-[#0077ed] transition-all disabled:opacity-50 shadow-lg shadow-blue-100"
+            className="w-full bg-[#0071e3] text-white py-4 rounded-2xl font-bold hover:bg-[#0077ed] transition-all disabled:opacity-50 shadow-lg shadow-blue-100 text-lg cursor-pointer"
           >
             {loading ? 'Authenticating...' : 'Sign In'}
           </button>
