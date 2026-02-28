@@ -1,0 +1,16 @@
+{
+  "common": {
+    "title": "Taily Hope",
+    "nav": {
+      "find": "Find a Tail",
+      "shelters": "Shelters",
+      "news": "News",
+      "admin": "Admin"
+    }
+  },
+  "hero": {
+    "title": "Give a Tail. Change a Story.",
+    "subtitle": "Discover your next family member. Modern, simple, and full of hope for every animal in Latvia.",
+    "cta": "Browse Animals"
+  }
+}

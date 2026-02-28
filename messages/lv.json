@@ -1,0 +1,16 @@
+{
+  "common": {
+    "title": "Taily Hope",
+    "nav": {
+      "find": "Atrast draugu",
+      "shelters": "Patversmes",
+      "news": "Jaunumi",
+      "admin": "Admin"
+    }
+  },
+  "hero": {
+    "title": "Uzdāvini cerību. Maini stāstu.",
+    "subtitle": "Atrodi savu jauno ģimenes locekli. Moderna un vienkārša platforma dzīvnieku palīdzībai Latvijā.",
+    "cta": "Apskatīt dzīvniekus"
+  }
+}
