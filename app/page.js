@@ -38,7 +38,7 @@ export default function Home() {
 
         {/* Bento Grid */}
         <section className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
-          <Link href="/catalog" className="bg-[#f5f5f7] rounded-[32px] p-12 text-center transition-all hover:scale-[1.01] hover:bg-[#f0f0f2] cursor-pointer group">
+          <Link href="/catalog" className="bg-[#f5f5f7] rounded-[32px] p-12 text-center transition-all hover:scale-[1.01] hover:bg-[#f0f0f2] cursor-pointer group block">
             <h2 className="text-4xl font-bold mb-2">Businka</h2>
             <p className="text-xl text-gray-500 mb-8 font-medium">Calm. Elegant. European.</p>
             <div className="w-full h-64 bg-white/50 rounded-3xl flex items-center justify-center text-8xl mb-8 group-hover:scale-105 transition-transform duration-500">
@@ -49,7 +49,7 @@ export default function Home() {
             </span>
           </Link>
 
-          <Link href="/catalog" className="bg-[#f5f5f7] rounded-[32px] p-12 text-center transition-all hover:scale-[1.01] hover:bg-[#f0f0f2] cursor-pointer group">
+          <Link href="/catalog" className="bg-[#f5f5f7] rounded-[32px] p-12 text-center transition-all hover:scale-[1.01] hover:bg-[#f0f0f2] cursor-pointer group block">
             <h2 className="text-4xl font-bold mb-2">Sergey</h2>
             <p className="text-xl text-gray-500 mb-8 font-medium">Strong. Loyal. Tabby King.</p>
             <div className="w-full h-64 bg-white/50 rounded-3xl flex items-center justify-center text-8xl mb-8 group-hover:scale-105 transition-transform duration-500">
@@ -63,19 +63,19 @@ export default function Home() {
 
         {/* Small Cards */}
         <section className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-6 mb-32">
-          <div className="bg-[#f5f5f7] p-8 rounded-[32px] flex flex-col items-center text-center">
-            <div className="text-5xl mb-6">📍</div>
+          <Link href="#" className="bg-[#f5f5f7] p-8 rounded-[32px] flex flex-col items-center text-center group cursor-pointer block">
+            <div className="text-5xl mb-6 group-hover:scale-110 transition-transform">📍</div>
             <h3 className="text-2xl font-bold mb-2">Local Shelters</h3>
             <p className="text-gray-500 font-medium mb-6">Find a friend near you.</p>
-            <span className="text-[#0066cc] font-medium hover:underline cursor-pointer">Explore 〉</span>
-          </div>
-          <Link href="/news" className="bg-[#f5f5f7] p-8 rounded-[32px] flex flex-col items-center text-center group cursor-pointer">
+            <span className="text-[#0066cc] font-medium hover:underline">Explore 〉</span>
+          </Link>
+          <Link href="/news" className="bg-[#f5f5f7] p-8 rounded-[32px] flex flex-col items-center text-center group cursor-pointer block">
             <div className="text-5xl mb-6 group-hover:scale-110 transition-transform">❤️</div>
             <h3 className="text-2xl font-bold mb-2">Latest News</h3>
             <p className="text-gray-500 font-medium mb-6">Updates from our community.</p>
             <span className="text-[#0066cc] font-medium hover:underline">Read more 〉</span>
           </Link>
-          <Link href="/admin" className="bg-[#f5f5f7] p-8 rounded-[32px] flex flex-col items-center text-center group cursor-pointer">
+          <Link href="/admin" className="bg-[#f5f5f7] p-8 rounded-[32px] flex flex-col items-center text-center group cursor-pointer block">
             <div className="text-5xl mb-6 group-hover:scale-110 transition-transform">📋</div>
             <h3 className="text-2xl font-bold mb-2">Admin Panel</h3>
             <p className="text-gray-500 font-medium mb-6">Manage shelter listings.</p>
