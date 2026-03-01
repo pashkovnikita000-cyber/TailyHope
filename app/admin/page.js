@@ -12,17 +12,19 @@ export default function AdminLogin() {
   const handleLogin = async (e) => {
     e.preventDefault()
     setLoading(true)
-    console.log('Attempting login for:', email)
     
     const { data, error } = await supabase.auth.signInWithPassword({ email, password })
     
     if (error) {
-      console.error('Login error:', error.message)
       alert(error.message)
     } else {
-      console.log('Login successful, redirecting to /admin/dashboard')
-      // Используем полный путь для надежности
-      window.location.href = '/admin/dashboard'
+      // Try both methods for maximum reliability
+      router.push('/admin/dashboard')
+      setTimeout(() => {
+        if (window.location.pathname !== '/admin/dashboard') {
+          window.location.assign('/admin/dashboard')
+        }
+      }, 500)
     }
     setLoading(false)
   }
@@ -41,7 +43,6 @@ export default function AdminLogin() {
             <label className="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2 ml-4">Email</label>
             <input 
               type="email" 
-              required
               className="w-full bg-[#f5f5f7] border-none rounded-2xl py-4 px-6 focus:ring-2 focus:ring-blue-500 transition-all text-lg"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -51,7 +52,6 @@ export default function AdminLogin() {
             <label className="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-2 ml-4">Password</label>
             <input 
               type="password" 
-              required
               className="w-full bg-[#f5f5f7] border-none rounded-2xl py-4 px-6 focus:ring-2 focus:ring-blue-500 transition-all text-lg"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
