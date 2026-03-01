@@ -2,17 +2,27 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '@/lib/supabase'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 export default function AdminDashboard() {
   const [stats, setStats] = useState({ pets: 0, requests: 0, shelters: 0 })
   const [requests, setRequests] = useState([])
   const [loading, setLoading] = useState(true)
+  const router = useRouter()
 
   useEffect(() => {
+    async function checkUser() {
+      const { data: { session } } = await supabase.auth.getSession()
+      if (!session) {
+        router.push('/admin')
+      } else {
+        fetchData()
+      }
+    }
+
     async function fetchData() {
       const { count: petsCount } = await supabase.from('pets').select('*', { count: 'exact', head: true })
       const { count: shelterCount } = await supabase.from('shelters').select('*', { count: 'exact', head: true })
-      
       const { data: reqData, count: reqCount } = await supabase
         .from('adoption_requests')
         .select('*, pets(name)')
@@ -27,8 +37,15 @@ export default function AdminDashboard() {
       setRequests(reqData || [])
       setLoading(false)
     }
-    fetchData()
-  }, [])
+
+    checkUser()
+  }, [router])
+
+  if (loading) return (
+    <div className="min-h-screen flex items-center justify-center bg-white">
+      <div className="animate-pulse text-indigo-600 font-bold">Taily Hope Admin...</div>
+    </div>
+  )
 
   return (
     <div className="min-h-screen bg-[#f5f5f7] pt-32 px-6 max-w-7xl mx-auto font-sans text-[#1d1d1f]">
@@ -41,29 +58,30 @@ export default function AdminDashboard() {
           <Link href="/admin/add-pet" className="bg-[#0071e3] text-white px-6 py-3 rounded-2xl font-bold hover:bg-[#0077ed] transition-all shadow-lg shadow-blue-100">
             + Add Pet
           </Link>
-          <Link href="/" className="bg-white text-black border border-gray-200 px-6 py-3 rounded-2xl font-bold hover:bg-gray-50 transition-all">
-            View Site
-          </Link>
+          <button 
+            onClick={async () => { await supabase.auth.signOut(); router.push('/admin'); }}
+            className="bg-white text-black border border-gray-200 px-6 py-3 rounded-2xl font-bold hover:bg-gray-50 transition-all"
+          >
+            Sign Out
+          </button>
         </div>
       </div>
 
-      {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
         <div className="bg-white rounded-[32px] p-10 shadow-sm border border-gray-100">
           <div className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Total Tails</div>
-          <div className="text-6xl font-black">{loading ? '...' : stats.pets}</div>
+          <div className="text-6xl font-black">{stats.pets}</div>
         </div>
         <div className="bg-white rounded-[32px] p-10 shadow-sm border border-gray-100">
           <div className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">New Inquiries</div>
-          <div className="text-6xl font-black text-orange-500">{loading ? '...' : stats.requests}</div>
+          <div className="text-6xl font-black text-orange-500">{stats.requests}</div>
         </div>
         <div className="bg-white rounded-[32px] p-10 shadow-sm border border-gray-100">
           <div className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Verified Shelters</div>
-          <div className="text-6xl font-black text-indigo-600">{loading ? '...' : stats.shelters}</div>
+          <div className="text-6xl font-black text-indigo-600">{stats.shelters}</div>
         </div>
       </div>
 
-      {/* Recent Requests Table */}
       <div className="bg-white rounded-[40px] shadow-sm border border-gray-100 overflow-hidden mb-20">
         <div className="p-8 border-b border-gray-100 flex justify-between items-center">
           <h2 className="text-2xl font-bold">Recent Inquiries</h2>
