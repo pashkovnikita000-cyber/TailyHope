@@ -16,8 +16,8 @@ export default function AdminLogin() {
     if (error) {
       alert(error.message)
     } else {
-      // Force direct browser navigation to bypass any Next.js client-side routing issues
-      window.location.replace('/admin/dashboard')
+      // ИСПОЛЬЗУЕМ КОРНЕВОЙ ПУТЬ ДЛЯ ТЕСТА, ЕСЛИ ПОДПАПКИ НЕ РАБОТАЮТ
+      window.location.href = '/admin-dashboard'
     }
     setLoading(false)
   }

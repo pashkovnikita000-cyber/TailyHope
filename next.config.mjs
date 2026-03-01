@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Выключаем trailingSlash для чистоты путей
   trailingSlash: false,
-  skipTrailingSlashRedirect: true,
 };
 
 export default nextConfig;
