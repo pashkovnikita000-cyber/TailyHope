@@ -1,13 +1,11 @@
 'use client'
 import { useState } from 'react'
 import { supabase } from '@/lib/supabase'
-import { useRouter } from 'next/navigation'
 
 export default function AdminLogin() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
-  const router = useRouter()
 
   const handleLogin = async (e) => {
     e.preventDefault()
@@ -18,14 +16,8 @@ export default function AdminLogin() {
     if (error) {
       alert(error.message)
     } else {
-      // Try multiple paths for maximum reliability during debugging
-      console.log('Login success, trying redirects...')
-      router.push('/admin/dashboard')
-      setTimeout(() => {
-        if (window.location.pathname === '/admin') {
-           window.location.assign('/admin-dashboard')
-        }
-      }, 1000)
+      // Force direct browser navigation to bypass any Next.js client-side routing issues
+      window.location.replace('/admin/dashboard')
     }
     setLoading(false)
   }
