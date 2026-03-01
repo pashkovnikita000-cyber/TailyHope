@@ -18,13 +18,14 @@ export default function AdminLogin() {
     if (error) {
       alert(error.message)
     } else {
-      // Try both methods for maximum reliability
+      // Try multiple paths for maximum reliability during debugging
+      console.log('Login success, trying redirects...')
       router.push('/admin/dashboard')
       setTimeout(() => {
-        if (window.location.pathname !== '/admin/dashboard') {
-          window.location.assign('/admin/dashboard')
+        if (window.location.pathname === '/admin') {
+           window.location.assign('/admin-dashboard')
         }
-      }, 500)
+      }, 1000)
     }
     setLoading(false)
   }
