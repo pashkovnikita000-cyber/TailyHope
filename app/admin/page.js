@@ -12,11 +12,17 @@ export default function AdminLogin() {
   const handleLogin = async (e) => {
     e.preventDefault()
     setLoading(true)
-    const { error } = await supabase.auth.signInWithPassword({ email, password })
+    console.log('Attempting login for:', email)
+    
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password })
+    
     if (error) {
+      console.error('Login error:', error.message)
       alert(error.message)
     } else {
-      router.push('/admin/dashboard')
+      console.log('Login successful, redirecting to /admin/dashboard')
+      // Используем полный путь для надежности
+      window.location.href = '/admin/dashboard'
     }
     setLoading(false)
   }
